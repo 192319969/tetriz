@@ -5,18 +5,20 @@
 
 namespace gm{
     //---------------------------变量定义区------------------------
-    bool running,locking;
+    bool running,locking,holding;
     Piece one_piece;
     Matrix playfield;
     std::chrono::microseconds duration;
     Matrix frame;
     std::queue<Tetromino> next;
+    Tetromino hold_piece;
     //-------------------------------------------------------------
     void init()
     {
         srand(std::time(0));
         running=true;
         locking=false;
+        holding=false;
         //playfield[y][x],x=0~9,y=0~21, 10*20
         playfield=Matrix(22,std::vector<int>(10,0));
         load();
@@ -41,6 +43,7 @@ namespace gm{
                 clear();
                 one_piece=pick();
                 locking=false;
+                holding=false;
             }else{
                 locking=true;
             }
@@ -160,6 +163,25 @@ namespace gm{
             }
         }
         fs.close();
+    }
+    //如果暂存区为空，当前块放入暂存区，重新生成一个当前块，从头开始掉落
+    //如果暂存区不为空，当前块放入暂存区，使用原暂存区的块重新生成一个当前块，从头开始掉落
+    //每回合只可以暂存一次
+    void hold()
+    {
+        if(holding)
+            return;
+        if(hold_piece.empty()){
+            hold_piece=one_piece.get_tetromino();
+            one_piece=pick();
+            one_piece.set_playfield(std::make_shared<Matrix>(playfield));
+        }else{
+            auto tmp = hold_piece;
+            hold_piece=one_piece.get_tetromino();
+            one_piece = Piece(tmp,4,20,0);
+            one_piece.set_playfield(std::make_shared<Matrix>(playfield));
+        }
+        holding=true;
     }
     void merge(Matrix &m, const Piece &p)
     {

@@ -24,7 +24,8 @@ namespace gm
         std::pair<int,int> get_mino(int i,int index) const;
 
         void set_ghost();
-
+        void set_disable();
+        Tetromino get_tetromino() const;
     private:
         bool move(int dx,int dy);
         char get_type() const;
@@ -33,7 +34,7 @@ namespace gm
         int index; //[0 R 2 L]
         int x,y; //正交坐标
         std::shared_ptr<Matrix> sp_playfield;
-        int status;//0:阴影 1:正常
+        int status;//0:阴影 1:正常 2:暂存块
         Offset offset;
     };
 }// namespace gm

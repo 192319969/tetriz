@@ -14,8 +14,8 @@ void init(){
     dw::window(7, 1, 9, 16, "Status");
     dw::window(19, 22, 8, 4, "Info");
     dw::window(1, 22, 8, 18, "hold");
-    gm::start_listener();
     gm::init();
+    gm::start_listener();
     setbuf(stdout,nullptr);
 }
 
@@ -30,6 +30,7 @@ void loop(){
 
         dw::frame(gm::frame, 2, 11);
         dw::next(gm::next, 2, 23);
+        dw::hold(gm::hold_piece,2,2);
 
         tc::reset_color();
 

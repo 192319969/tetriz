@@ -17,6 +17,7 @@ namespace dw
     void tetromino(Tetromino &t, int top, int left,int index);
     void frame(Matrix &frame, int top, int left);
     void next(std::queue<Tetromino> next5,int top, int left);
+    void hold(Tetromino& h,int top, int left);
     void matrix(Matrix &m, int top, int left,Matrix* buffer=nullptr,std::string blank="  ");
 
 }

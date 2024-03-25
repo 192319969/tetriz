@@ -156,6 +156,19 @@ void next(std::queue<Tetromino> next5,int top, int left){
     }
     matrix(next_feild,top,left,&buffer);
 }
+void hold(Tetromino& h,int top, int left){
+    static Matrix buffer(4,std::vector<int>(7,-1));
+    Matrix hold_feild(4,std::vector<int>(7,0));
+    if(!h.empty())
+    {
+        gm::Piece p(h,3,1,0);
+        if(gm::holding){
+            p.set_disable();
+        }
+        gm::merge(hold_feild,p);
+        matrix(hold_feild,top,left,&buffer);
+    }
+}
 void matrix(Matrix &m, int top, int left,Matrix* buffer,std::string blank)
 {
     std::ostringstream oss;

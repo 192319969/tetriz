@@ -13,6 +13,8 @@ namespace gm
     extern bool running;
     //锁定标志
     extern bool locking;
+    //暂存标志
+    extern bool holding;
     //当前正在下落的方块
     extern Piece one_piece;
     //游戏区域
@@ -24,6 +26,8 @@ namespace gm
     extern Matrix frame;
     //五格预览队列
     extern std::queue<Tetromino> next;
+    //暂存
+    extern Tetromino hold_piece;
     //================================================================
     //  游戏逻辑
     //================================================================
@@ -52,6 +56,8 @@ namespace gm
     void preview();
     //载入预设地图
     void load();
+    //暂存
+    void hold();
     //--------------------------------------
     void merge(Matrix& m,const Piece& p);
 

@@ -1,5 +1,7 @@
 #include "piece.h"
 
+#include "piece.h"
+
 namespace gm
 {
     Piece::Piece(Tetromino t, int x0, int y0, int i)
@@ -70,6 +72,7 @@ namespace gm
 
     int Piece::get_color() const
     {
+        if(status==2) return (int)Color::White;
         return status? tetro_set[index][0].second:0-tetro_set[index][0].second;
     }
 
@@ -114,7 +117,14 @@ namespace gm
     {
         status=0;
     }
-
+    void Piece::set_disable()
+    {
+        status=2;
+    }
+    Tetromino Piece::get_tetromino() const
+    {
+        return tetro_set;
+    }
     bool Piece::move(int dx, int dy)
     {
         if(test(x+dx,y+dy))
