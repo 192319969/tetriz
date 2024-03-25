@@ -1,5 +1,5 @@
 .vscode/
 *.sh
-bin/
-build/
+bin/*
+build/*
 CMakeLists.txt
