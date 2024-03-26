@@ -19,6 +19,8 @@ namespace gm
     extern bool reseting;
     //结束标志
     extern bool ending;
+    //帮助标志
+    extern bool helping;
     //当前正在下落的方块
     extern Piece one_piece;
     //游戏区域
@@ -68,6 +70,8 @@ namespace gm
     void levelup();
     //重置
     void reset();
+    //帮助
+    void help();
     //--------------------------------------
     void merge(Matrix& m,const Piece& p);
 

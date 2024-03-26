@@ -18,6 +18,7 @@ namespace gm
     void command_down();
     void command_drop();
     void command_hold();
+    void command_help();
     void command_reset();
 
 }

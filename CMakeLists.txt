@@ -11,6 +11,7 @@ aux_source_directory(${PROJECT_SOURCE_DIR}/control/src control)
 aux_source_directory(${PROJECT_SOURCE_DIR}/game/src game)
 aux_source_directory(${PROJECT_SOURCE_DIR}/tetromino/src tetromino)
 aux_source_directory(${PROJECT_SOURCE_DIR}/piece/src piece)
+aux_source_directory(${PROJECT_SOURCE_DIR}/window/src window)
 set(SRC ${SRC} 
         ${terminal} 
         ${utils} 
@@ -19,6 +20,7 @@ set(SRC ${SRC}
         ${game} 
         ${tetromino} 
         ${piece}
+        ${window}
         )
 
 include_directories(${PROJECT_SOURCE_DIR}/terminal/inc 
@@ -28,6 +30,7 @@ include_directories(${PROJECT_SOURCE_DIR}/terminal/inc
                     ${PROJECT_SOURCE_DIR}/game/inc 
                     ${PROJECT_SOURCE_DIR}/tetromino/inc 
                     ${PROJECT_SOURCE_DIR}/piece/inc 
+                    ${PROJECT_SOURCE_DIR}/window/inc 
                     ${PROJECT_SOURCE_DIR})
 
 configure_file(${PROJECT_SOURCE_DIR}/tetriz.map ${PROJECT_BINARY_DIR})

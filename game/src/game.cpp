@@ -15,6 +15,7 @@ namespace gm{
     int score,level,lines;
     bool ending;
     bool reseting;
+    bool helping;
     //-------------------------------------------------------------
     void init()
     {
@@ -24,6 +25,7 @@ namespace gm{
         holding=false;
         ending=false;
         reseting=false;
+        helping=false;
         score=0;
         lines=0;
         levelup();
@@ -230,6 +232,10 @@ namespace gm{
     void reset(){
         init();
         reseting=true;
+    }
+    void help()
+    {
+
     }
     void merge(Matrix &m, const Piece &p)
     {
