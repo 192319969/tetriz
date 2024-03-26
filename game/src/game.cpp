@@ -12,6 +12,8 @@ namespace gm{
     Matrix frame;
     std::queue<Tetromino> next;
     Tetromino hold_piece;
+    int score,level,lines;
+    bool ending;
     //-------------------------------------------------------------
     void init()
     {
@@ -19,17 +21,24 @@ namespace gm{
         running=true;
         locking=false;
         holding=false;
+        ending=false;
+        score=0;
+        lines=0;
+        levelup();
         //playfield[y][x],x=0~9,y=0~21, 10*20
         playfield=Matrix(22,std::vector<int>(10,0));
         load();
         preview();
         one_piece=pick();
-        duration=500ms;
         frame=playfield;
     }
 
     void process()
     {
+        if(ending)
+        {
+            return;
+        }
         render();
         if(ut::timer(duration))
         {
@@ -42,6 +51,7 @@ namespace gm{
             //Ïû³ýÐÐ
                 clear();
                 one_piece=pick();
+                levelup();
                 locking=false;
                 holding=false;
             }else{
@@ -83,6 +93,7 @@ namespace gm{
     }
     void clear()
     {
+        int count=0;
         for(auto it=playfield.begin();it != playfield.end();++it){
             bool full=true;
             for(auto cell:*it){
@@ -95,8 +106,26 @@ namespace gm{
                 it = playfield.erase(it);
                 playfield.push_back(std::vector<int>(it->size(),0));
                 it--;
+                count++;
             }
         }
+        switch(count){
+            case 1:
+                score+=100*level;
+                break;
+            case 2:
+                score+=300*level;
+                break;
+            case 3:
+                score+=500*level;
+                break;
+            case 4:
+                score+=800*level;
+                break;
+            default:
+                break;
+        }
+        lines+=count;
     }
     Piece pick()
     {
@@ -108,6 +137,10 @@ namespace gm{
         Piece p(next.front(),4,20,0);
         // Piece p(j,4,20,0);
         p.set_playfield(std::make_shared<Matrix>(playfield));
+        if(!p.test(4,20))
+        {
+            ending=true;
+        }
         next.pop();
         preview();
         return std::move(p);
@@ -130,11 +163,13 @@ namespace gm{
     }
     void down()
     {
-        one_piece.down();
+        if(one_piece.down())
+            score++;
     }
     void drop()
     {
-        while(one_piece.down());
+        while(one_piece.down())
+            score+=2;
         locking=true;
     }
     void preview(){
@@ -182,6 +217,12 @@ namespace gm{
             one_piece.set_playfield(std::make_shared<Matrix>(playfield));
         }
         holding=true;
+    }
+    void levelup()
+    {
+        // (0.8-((Level-1)*0.007))^(Level-1)
+        level=lines/10+1;
+        duration=std::chrono::milliseconds((int)(pow(0.8-(level-1)*0.007,level-1)*1000));
     }
     void merge(Matrix &m, const Piece &p)
     {

@@ -15,6 +15,7 @@
 #include <ostream>
 #include <queue>
 #include <fstream>
+#include <cmath>
 
 #include "termios.h"
 

@@ -13,7 +13,7 @@ void init(){
     dw::window(1, 10, 12, 22, "Tetriz");
     dw::window(7, 1, 9, 16, "Status");
     dw::window(19, 22, 8, 4, "Info");
-    dw::window(1, 22, 8, 18, "hold");
+    dw::window(1, 22, 8, 18, "Next");
     gm::init();
     gm::start_listener();
     setbuf(stdout,nullptr);
@@ -27,6 +27,19 @@ void loop(){
         //show fps
         tc::move_to(10, 4);
         std::cout << "FPS: " << ut::fps();
+        tc::move_to(12, 4);
+        std::cout << "Level: " << gm::level;
+        tc::move_to(13, 4);
+        std::cout << "Score: " << gm::score;
+        tc::move_to(14, 4);
+        std::cout << "Lines: " << gm::lines;
+
+        if(gm::ending){
+            dw::window(9, 12, 10, 3, "");
+            tc::move_to(10, ut::block2col(14));
+            tc::set_fore_color((int)Color::Red);
+            std::cout << " Game Over!";
+        }
 
         dw::frame(gm::frame, 2, 11);
         dw::next(gm::next, 2, 23);

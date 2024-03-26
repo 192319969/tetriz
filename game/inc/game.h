@@ -15,6 +15,8 @@ namespace gm
     extern bool locking;
     //暂存标志
     extern bool holding;
+    //结束标志
+    extern bool ending;
     //当前正在下落的方块
     extern Piece one_piece;
     //游戏区域
@@ -28,6 +30,8 @@ namespace gm
     extern std::queue<Tetromino> next;
     //暂存
     extern Tetromino hold_piece;
+    //游戏分数
+    extern int score,level,lines;
     //================================================================
     //  游戏逻辑
     //================================================================
@@ -58,7 +62,19 @@ namespace gm
     void load();
     //暂存
     void hold();
+    //升级
+    void levelup();
     //--------------------------------------
     void merge(Matrix& m,const Piece& p);
 
 }
+/**
+ *      https://harddrop.com/wiki/Scoring
+ * 
+ * Single	100 x level	
+ * Double	300 x level	
+ * Triple	500 x level	
+ * Tetris	800 x level	
+ * Soft drop	1 point per cell	
+ * Hard drop	2 points per cell	
+**/
