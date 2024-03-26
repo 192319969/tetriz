@@ -235,7 +235,8 @@ namespace gm{
     }
     void help()
     {
-
+        helping=!helping;
+        reseting=!helping;
     }
     void merge(Matrix &m, const Piece &p)
     {

@@ -32,6 +32,30 @@ namespace ui
             tc::set_fore_color((int)Color::Red);
             std::cout << " Game Over!";
         }
+        if(gm::helping){
+            tc::move_to(5, ut::block2col(12));
+            std::cout << "Help Info         ";
+            tc::move_to(6, ut::block2col(12));
+            std::cout << "                  ";
+            tc::move_to(7, ut::block2col(12));
+            std::cout << "Rotate_R   [w]    ";
+            tc::move_to(8, ut::block2col(12));
+            std::cout << "Rotate_L   [z]    ";
+            tc::move_to(9, ut::block2col(12));
+            std::cout << "Rotate_2   [x]    ";
+            tc::move_to(10, ut::block2col(12));
+            std::cout << "Left       [a]    ";
+            tc::move_to(11, ut::block2col(12));
+            std::cout << "Right      [d]    ";
+            tc::move_to(12, ut::block2col(12));
+            std::cout << "Down       [s]    ";
+            tc::move_to(13, ut::block2col(12));
+            std::cout << "Drop       [space]";
+            tc::move_to(14, ut::block2col(12));
+            std::cout << "Hold       [c]    ";
+            tc::move_to(15, ut::block2col(12));
+            std::cout << "Reset      [r]    ";
+        }
     }
     void show_game()
     {
