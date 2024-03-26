@@ -15,6 +15,7 @@ namespace gm{
         {KEY_D,command_right},
         {KEY_S,command_down},
         {KEY_C,command_hold},
+        {KEY_R,command_reset},
         {KEY_SPACE,command_drop}
     };
 
@@ -80,6 +81,9 @@ namespace gm{
     }
     void command_hold(){
         hold();
+    }
+    void command_reset(){
+        reset();
     }
 
 }

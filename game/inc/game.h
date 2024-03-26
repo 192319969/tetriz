@@ -15,6 +15,8 @@ namespace gm
     extern bool locking;
     //暂存标志
     extern bool holding;
+    //暂存标志
+    extern bool reseting;
     //结束标志
     extern bool ending;
     //当前正在下落的方块
@@ -64,6 +66,8 @@ namespace gm
     void hold();
     //升级
     void levelup();
+    //重置
+    void reset();
     //--------------------------------------
     void merge(Matrix& m,const Piece& p);
 

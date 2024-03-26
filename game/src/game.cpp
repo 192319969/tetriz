@@ -14,6 +14,7 @@ namespace gm{
     Tetromino hold_piece;
     int score,level,lines;
     bool ending;
+    bool reseting;
     //-------------------------------------------------------------
     void init()
     {
@@ -22,6 +23,7 @@ namespace gm{
         locking=false;
         holding=false;
         ending=false;
+        reseting=false;
         score=0;
         lines=0;
         levelup();
@@ -54,6 +56,7 @@ namespace gm{
                 levelup();
                 locking=false;
                 holding=false;
+                reseting=false;
             }else{
                 locking=true;
             }
@@ -223,6 +226,10 @@ namespace gm{
         // (0.8-((Level-1)*0.007))^(Level-1)
         level=lines/10+1;
         duration=std::chrono::milliseconds((int)(pow(0.8-(level-1)*0.007,level-1)*1000));
+    }
+    void reset(){
+        init();
+        reseting=true;
     }
     void merge(Matrix &m, const Piece &p)
     {

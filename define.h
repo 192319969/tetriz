@@ -33,4 +33,5 @@ using std::ranges::views::iota;
 #define KEY_Z 'z'
 #define KEY_X 'x'
 #define KEY_C 'c'
+#define KEY_R 'r'
 #define KEY_SPACE ' '

@@ -143,6 +143,9 @@ void tetromino(Tetromino &t, int top, int left, int index)
 
 void frame(Matrix &frame, int top, int left){
     static Matrix buffer(frame.size(),std::vector<int>(frame[0].size(),-1));
+    if(gm::reseting){
+        buffer=Matrix(frame.size(),std::vector<int>(frame[0].size(),-1));
+    }
     Matrix f(frame.begin(),frame.begin()+20);
     matrix(f,top,left,&buffer,"\u30FB");
 }
