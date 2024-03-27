@@ -1,4 +1,5 @@
 .vscode/
 *.sh
+*.ps1
 bin/*
 build/*
