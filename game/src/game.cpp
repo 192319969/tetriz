@@ -71,29 +71,13 @@ namespace gm{
     void render()
     {
         frame=playfield;
-        // auto [x,y]=one_piece.get_xy();
-        // //Ê≠£Â∏∏ÂùóÊ∏≤Êü?
-        // for(auto i:iota(0,4))
-        // {
-        //     auto [dx,dy]=one_piece.get_mino(i);
-        //     frame[y+dy][x+dx]=one_piece.get_color();
-        // }
-        // //È¢ÑË?àÂùóÊ∏≤Êüì
         merge(frame,one_piece);
         Piece ghost = one_piece;
         ghost.set_ghost();
-        // while(one_piece.test(x,--y));
-        // y++;
 
         while(ghost.down())
             ;
         merge(frame,ghost);
-        // for(auto i:iota(0,4))
-        // {
-        //     auto [dx,dy]=one_piece.get_mino(i);
-        //     if(frame[y+dy][x+dx]==0)
-        //         frame[y+dy][x+dx]=0-one_piece.get_color();
-        // }
     }
     //À¯∂®
     void lock(){
@@ -102,7 +86,7 @@ namespace gm{
     void clear()
     {
         int count=0;
-        for(auto it=playfield.begin();it != playfield.end();++it){
+        for(auto it=playfield.begin();it != playfield.end();){
             bool full=true;
             for(auto cell:*it){
                 if(cell==0){
@@ -113,8 +97,9 @@ namespace gm{
             if(full){
                 it = playfield.erase(it);
                 playfield.push_back(std::vector<int>(it->size(),0));
-                it--;
                 count++;
+            }else{
+                ++it;
             }
         }
         switch(count){
