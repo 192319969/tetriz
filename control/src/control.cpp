@@ -20,6 +20,7 @@ namespace gm{
         {KEY_SPACE,command_drop}
     };
 
+#ifdef __linux__
     char getch()
     {
         char c;
@@ -32,6 +33,7 @@ namespace gm{
         tcsetattr(0,0,&old);
         return c;
     }
+#endif
 
     void key_event()
     {

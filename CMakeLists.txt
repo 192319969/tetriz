@@ -40,3 +40,9 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 set(CMAKE_BUILD_TYPE Debug)
 
 add_executable(tetriz ${SRC})
+
+if(MSVC)
+        target_compile_options(tetriz PRIVATE "/utf-8")
+elseif(MINGW)
+        target_compile_options(tetriz PRIVATE "-fexec-charset=utf-8")
+endif()

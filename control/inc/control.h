@@ -3,8 +3,9 @@
 namespace gm
 {
     extern char command;
-
+#ifdef __linux__
     char getch();
+#endif
     void key_event();
     void start_listener();
 

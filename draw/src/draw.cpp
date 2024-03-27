@@ -83,6 +83,7 @@ namespace dw{
         std::cout << title;
 }
 
+/*
 void tetromino(gm::Tetromino_1 &t, int top, int left)
 {
     for (int i = 0; i < t.size(); i++)
@@ -126,6 +127,7 @@ void tetromino(gm::Tetromino_2 &t, int top, int left, int index)
         }
     }
 }
+*/
 void tetromino(Tetromino &t, int top, int left, int index)
 {
     tc::move_to(top, ut::block2col(left));

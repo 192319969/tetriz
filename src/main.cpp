@@ -33,8 +33,8 @@ void loop(){
 
 void exit(){
     tc::show_cursor();
-    tc::reset_color();
     ui::show_exit();
+    tc::reset_color();
 }
 
 int main() {

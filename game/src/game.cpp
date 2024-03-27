@@ -19,6 +19,9 @@ namespace gm{
     //-------------------------------------------------------------
     void init()
     {
+#ifdef _WIN32
+    system("chcp 65001");
+#endif
         srand(std::time(0));
         running=true;
         locking=false;
@@ -31,7 +34,7 @@ namespace gm{
         levelup();
         //playfield[y][x],x=0~9,y=0~21, 10*20
         playfield=Matrix(22,std::vector<int>(10,0));
-        load();
+        // load();
         preview();
         one_piece=pick();
         frame=playfield;

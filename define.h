@@ -17,7 +17,11 @@
 #include <fstream>
 #include <cmath>
 
+#ifdef __linux__
 #include "termios.h"
+#elif  _WIN32
+#include <conio.h>
+#endif
 
 using namespace std::chrono_literals;
 using Matrix = std::vector<std::vector<int>>;

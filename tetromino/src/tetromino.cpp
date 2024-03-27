@@ -2,6 +2,7 @@
 
 namespace gm
 {
+/*
     Tetromino_1 I{
         {0, 0, 0, 0, 0},
         {0, 0, 0, 0, 0},
@@ -15,7 +16,7 @@ namespace gm
     Tetromino_1 S{{0,5,5},{5,5,0},{0,0,0}};
     Tetromino_1 T{{0,6,0},{6,6,6},{0,0,0}};
     Tetromino_1 Z{{7,7,0},{0,7,7},{0,0,0}};
-
+*/
     std::map<int, Color> tetro_color{
         {1, Color::Cyan},
         {2, Color::Orange},
@@ -25,7 +26,7 @@ namespace gm
         {6, Color::Purple},
         {7, Color::Red}
     };
-
+/*
     Tetromino_1 rotate(Tetromino_1 &t)
     {
         Tetromino_1 result(t.size(), std::vector<int>(t.size(), 0));
@@ -44,6 +45,7 @@ namespace gm
     {
         return (t>>(i*4+j))&0x1==1;
     }
+*/
     /**
      * i
      * 0000  0010  0000  0100
@@ -58,14 +60,14 @@ namespace gm
      * []<<data
      * []<<data
      */
-
+/*
     Tetromino_2 I_set{
         0x0f00 | (int)Color::Cyan<<16 | 'I'<<24,
         0x2222 | (int)Color::Cyan<<16 | 'I'<<24, 
         0x00f0 | (int)Color::Cyan<<16 | 'I'<<24, 
         0x4444 | (int)Color::Cyan<<16 | 'I'<<24,
     };
-
+*/
     /**
      * o
      * 0000
@@ -75,13 +77,14 @@ namespace gm
      * 
      * 0x0660
     */
+/*
     Tetromino_2 O_set{
         0x0660 | (int)Color::Yellow<<16 | 'O'<<24,
         0x0660 | (int)Color::Yellow<<16 | 'O'<<24,
         0x0660 | (int)Color::Yellow<<16 | 'O'<<24,
         0x0660 | (int)Color::Yellow<<16 | 'O'<<24,
     };
-
+*/
     //-------------------------------------------------
     Tetromino i{{
         {{{ 'I', (int)Color::Cyan},{-1, 0},{ 1, 0},{ 2, 0}}},//0
