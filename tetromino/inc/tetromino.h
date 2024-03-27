@@ -4,6 +4,7 @@
 
 namespace gm
 {
+    /*
     using Tetromino_1 = std::vector<std::vector<int>>;
     extern Tetromino_1 I,J,L,O,S,T,Z;
 
@@ -14,6 +15,7 @@ namespace gm
     using Tetromino_2 = std::array<int,4>;
     extern Tetromino_2 I_set,J_set,L_set,O_set,S_set,T_set,Z_set;
     bool get_bit(int t,int i,int j);
+    */
     //-------------------------------------------
     /**
      *                      ^y

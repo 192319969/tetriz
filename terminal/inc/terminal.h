@@ -1,5 +1,4 @@
-#ifndef _TERMINAL_H
-#define _TERMINAL_H
+#pragma once
 #include "define.h"
 namespace tc{//terminal control
     void move_to(int row, int col, std::ostream &os=std::cout);
@@ -10,4 +9,3 @@ namespace tc{//terminal control
     void hide_cursor(std::ostream &os=std::cout);
     void show_cursor(std::ostream &os=std::cout);
 }
-#endif // _TERMINAL_H
