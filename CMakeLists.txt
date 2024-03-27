@@ -43,6 +43,8 @@ add_executable(tetriz ${SRC})
 
 if(MSVC)
         target_compile_options(tetriz PRIVATE "/utf-8")
+        set_property(TARGET tetriz PROPERTY
+                MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 elseif(MINGW)
         target_compile_options(tetriz PRIVATE "-fexec-charset=utf-8")
 endif()

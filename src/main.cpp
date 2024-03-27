@@ -8,6 +8,9 @@
 #include "window.h"
 
 void init(){
+#ifdef _WIN32
+    system("chcp 65001");
+#endif
     tc::hide_cursor();
     tc::clear_screen();
     ui::show_windows();
@@ -25,8 +28,6 @@ void loop(){
         ui::show_info();
         ui::show_game();
 
-
-        
         std::this_thread::sleep_for(100ms);//s ms us ns
     }
 }
