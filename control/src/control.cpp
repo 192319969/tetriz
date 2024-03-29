@@ -51,6 +51,19 @@ namespace gm{
         std::thread t(key_event);
         t.detach();
     }
+
+    std::string get_command() 
+    {
+        static const std::string space_command = "space";
+        if (gm::command == ' ') {
+            return std::move(space_command);
+        }
+        
+        std::string temp(1, gm::command);
+        temp.resize(5, ' ');
+        return std::move(temp);
+    }
+
     void command_quit()
     {
         quit();

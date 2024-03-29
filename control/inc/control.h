@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 
 namespace gm
 {
@@ -8,6 +9,8 @@ namespace gm
 #endif
     void key_event();
     void start_listener();
+
+    std::string get_command();
 
     //键盘事件
     void command_quit();

@@ -3,6 +3,7 @@
 #include "game.h"
 #include "terminal.h"
 #include "utils.h"
+#include "control.h"
 #include <iomanip>
 
 namespace ui
@@ -19,13 +20,16 @@ namespace ui
         tc::reset_color();
         //show fps
         tc::move_to(10, 4);
-        std::cout << "FPS: " << ut::fps();
+        std::cout << "FPS:  "   << ut::fps();
         tc::move_to(12, 4);
         std::cout << "Level: " << gm::level;
         tc::move_to(13, 4);
         std::cout << "Score: " << gm::score;
         tc::move_to(14, 4);
         std::cout << "Lines: " << gm::lines;
+
+        tc::move_to(15, 4);
+        std::cout << "CMD:  "   << gm::get_command();
         tc::move_to(17, 4);
         std::cout << "Time: "  << std::setprecision(3)<< ut::runtime();
 

@@ -28,7 +28,7 @@ void loop(){
         ui::show_info();
         ui::show_game();
 
-        std::this_thread::sleep_for(100ms);//s ms us ns
+        std::this_thread::sleep_for(15.625ms);//s ms us ns
     }
 }
 
