@@ -13,6 +13,7 @@
 #include <ranges>
 #include <sstream>
 #include <ostream>
+#include <istream>
 #include <queue>
 #include <fstream>
 #include <cmath>

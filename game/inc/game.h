@@ -74,6 +74,8 @@ namespace gm
     void help();
     //--------------------------------------
     void merge(Matrix& m,const Piece& p);
+    //加载历史最高分
+    int load_best_score();
 
 }
 /**

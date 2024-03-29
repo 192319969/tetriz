@@ -2,6 +2,8 @@
 #include "tetromino.h"
 #include "utils.h"
 #include "define.h"
+#include "terminal.h"
+#include <iomanip>
 
 namespace gm{
     //---------------------------变量定义区------------------------
@@ -231,5 +233,10 @@ namespace gm{
             if(m[y+dy][x+dx]==0)
                 m[y+dy][x+dx]=p.get_color();
         }
+    }
+    int load_best_score()
+    {
+        
+        return 0;
     }
 }
