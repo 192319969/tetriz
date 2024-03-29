@@ -11,4 +11,6 @@ namespace ut{
         return block * 2 - 1;
     }   
     bool timer(std::chrono::microseconds sec);
+
+    double runtime();
 }

@@ -3,6 +3,7 @@
 #include "game.h"
 #include "terminal.h"
 #include "utils.h"
+#include <iomanip>
 
 namespace ui
 {
@@ -25,6 +26,8 @@ namespace ui
         std::cout << "Score: " << gm::score;
         tc::move_to(14, 4);
         std::cout << "Lines: " << gm::lines;
+        tc::move_to(17, 4);
+        std::cout << "Time: "  << std::setprecision(3)<< ut::runtime();
 
         if(gm::ending){
             dw::window(9, 12, 10, 3, "");
