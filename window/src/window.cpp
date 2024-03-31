@@ -6,7 +6,9 @@
 
 namespace ui
 {
-    void show_windows(){
+    //=======================P1=======================
+    void show_windows()
+    {
         dw::window(1, 1, 9, 6, "Hold");
         dw::window(1, 10, 12, 22, "Tetriz");
         dw::window(7, 1, 9, 16, "Status");
@@ -16,7 +18,7 @@ namespace ui
     void show_info()
     {
         tc::reset_color();
-        //show fps
+        // show fps
         tc::move_to(10, 4);
         std::cout << "FPS: " << ut::fps();
         tc::move_to(12, 4);
@@ -26,13 +28,15 @@ namespace ui
         tc::move_to(14, 4);
         std::cout << "Lines: " << gm::lines;
 
-        if(gm::ending){
+        if (gm::ending)
+        {
             dw::window(9, 12, 10, 3, "");
             tc::move_to(10, ut::block2col(14));
             tc::set_fore_color((int)Color::Red);
             std::cout << " Game Over!";
         }
-        if(gm::helping){
+        if (gm::helping)
+        {
             tc::move_to(5, ut::block2col(12));
             std::cout << "Help Info         ";
             tc::move_to(6, ut::block2col(12));
@@ -61,7 +65,7 @@ namespace ui
     {
         dw::frame(gm::frame, 2, 11);
         dw::next(gm::next, 2, 23);
-        dw::hold(gm::hold_piece,2,2);
+        dw::hold(gm::hold_piece, 2, 2);
         std::cout << std::flush;
     }
     void show_exit()
@@ -74,7 +78,77 @@ namespace ui
     void show_help()
     {
         tc::reset_color();
-        tc::move_to(21,ut::block2col(24));
+        tc::move_to(21, ut::block2col(24));
         std::cout << "help [h]";
+    }
+
+    //=======================P2=======================
+    void show_windows2()
+    {
+        show_windows();
+        dw::window(1, 30 + 1, 9, 6, "Hold");
+        dw::window(1, 30 + 10, 12, 22, "Tetriz");
+        dw::window(7, 30 + 1, 9, 16, "Status");
+        dw::window(19, 30 + 22, 8, 4, "Info");
+        dw::window(1, 30 + 22, 8, 18, "Next");
+    }
+    void show_info2()
+    {
+        // show fps
+        tc::move_to(10, 4 + 60);
+        std::cout << "FPS: " << ut::fps();
+        tc::move_to(12, 4 + 60);
+        std::cout << "Level: " << gm::level2;
+        tc::move_to(13, 4 + 60);
+        std::cout << "Score: " << gm::score2;
+        tc::move_to(14, 4 + 60);
+        std::cout << "Lines: " << gm::lines2;
+
+        if (gm::ending2)
+        {
+            dw::window(9, 12 + 30, 10, 3, "");
+            tc::move_to(10, ut::block2col(14 + 30));
+            tc::set_fore_color((int)Color::Red);
+            std::cout << " Game Over!";
+            tc::reset_color();
+        }
+        if (gm::helping2)
+        {
+            tc::move_to(5, ut::block2col(12 + 30));
+            std::cout << "Help Info         ";
+            tc::move_to(6, ut::block2col(12 + 30));
+            std::cout << "                  ";
+            tc::move_to(7, ut::block2col(12 + 30));
+            std::cout << "Rotate_R   [5]    ";
+            tc::move_to(8, ut::block2col(12 + 30));
+            std::cout << "Rotate_L   [4]    ";
+            tc::move_to(9, ut::block2col(12 + 30));
+            std::cout << "Rotate_2   [6]    ";
+            tc::move_to(10, ut::block2col(12 + 30));
+            std::cout << "Left       [1]    ";
+            tc::move_to(11, ut::block2col(12 + 30));
+            std::cout << "Right      [3]    ";
+            tc::move_to(12, ut::block2col(12 + 30));
+            std::cout << "Down       [2]    ";
+            tc::move_to(13, ut::block2col(12 + 30));
+            std::cout << "Drop       [0]";
+            tc::move_to(14, ut::block2col(12 + 30));
+            std::cout << "Hold       [7]    ";
+            tc::move_to(15, ut::block2col(12 + 30));
+            std::cout << "Reset      [9]    ";
+        }
+    }
+    void show_help2()
+    {
+        show_help();
+        tc::move_to(21, ut::block2col(24 + 30));
+        std::cout << "help [8]";
+    }
+    void show_game2()
+    {
+        dw::frame(gm::frame2, 2, 11 + 30, 2);
+        dw::next(gm::next2, 2, 23 + 30, 2);
+        dw::hold(gm::hold_piece2, 2, 2 + 30, 2);
+        std::cout << std::flush;
     }
 }

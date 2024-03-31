@@ -1,21 +1,23 @@
 #include "utils.h"
 #include "define.h"
 
-namespace ut{
+namespace ut
+{
     int fps()
     {
-        static auto start=std::chrono::steady_clock::now();
-        auto end=start;
-        static int frame_count=0;
-        static int fps=0;
+        static auto start = std::chrono::steady_clock::now();
+        auto end = start;
+        static int frame_count = 0;
+        static int fps = 0;
 
-        //calculate fps
-        end=std::chrono::steady_clock::now();
+        // calculate fps
+        end = std::chrono::steady_clock::now();
         frame_count++;
-        if(end-start>=1s){
-            fps=frame_count;
-            frame_count=0;
-            start=end;
+        if (end - start >= 1s)
+        {
+            fps = frame_count;
+            frame_count = 0;
+            start = end;
         }
 
         return fps;
@@ -26,14 +28,30 @@ namespace ut{
         static std::wstring_convert<std::codecvt_utf8<char32_t>, char32_t> convert;
         return convert.to_bytes(str);
     }
-    
-    bool timer(std::chrono::microseconds sec)
+
+    bool timer(std::chrono::microseconds sec, int player)
     {
-        static auto start=std::chrono::steady_clock::now();
-        auto end=std::chrono::steady_clock::now();
-        if(end-start>=sec){
-            start=end;
-            return true;
+        if(player == 1)
+        {
+            static auto start = std::chrono::steady_clock::now();
+            auto end = std::chrono::steady_clock::now();
+            if (end - start >= sec)
+            {
+                start = end;
+                return true;
+            }
+            return false;
+        }
+        if(player == 2)
+        {
+            static auto start2 = std::chrono::steady_clock::now();
+            auto end2 = std::chrono::steady_clock::now();
+            if (end2 - start2 >= sec)
+            {
+                start2 = end2;
+                return true;
+            }
+            return false;
         }
         return false;
     }

@@ -21,5 +21,15 @@ namespace gm
     void command_hold();
     void command_help();
     void command_reset();
-
+    //===================P2===================
+    void command_rotate_R2();
+    void command_rotate_L2();
+    void command_rotate_22();
+    void command_left2();
+    void command_right2();
+    void command_down2();
+    void command_drop2();
+    void command_hold2();
+    void command_help2();
+    void command_reset2();
 }
