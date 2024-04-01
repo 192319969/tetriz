@@ -131,16 +131,20 @@ namespace gm
             break;
         case 2:
             score += 300 * level;
+            add_garbage(playfield2,1);
             break;
         case 3:
             score += 500 * level;
+            add_garbage(playfield2,1);
             break;
         case 4:
             score += 800 * level;
+            add_garbage(playfield2,4);
             break;
         default:
             break;
         }
+        one_piece2.set_playfield(std::make_shared<Matrix>(playfield2));
         lines += count;
     }
     Piece pick()
@@ -339,16 +343,20 @@ namespace gm
             break;
         case 2:
             score2 += 300 * level2;
+            add_garbage(playfield,1);
             break;
         case 3:
             score2 += 500 * level2;
+            add_garbage(playfield,1);
             break;
         case 4:
             score2 += 800 * level2;
+            add_garbage(playfield,4);
             break;
         default:
             break;
         }
+        one_piece.set_playfield(std::make_shared<Matrix>(playfield));
         lines2 += count;
     }
     void process2()
@@ -474,7 +482,14 @@ namespace gm
         helping2 = !helping2;
         reseting2 = !helping2;
     }
-    void add_trash(Matrix& m,int n){
-        
+    void add_garbage(Matrix& m,int n)
+    {
+        auto garbage_line=std::vector<int>(10, (int)Color::Gray);
+        garbage_line[rand()%10]=0;
+        for(auto i:iota(0,n))
+        {
+            m.pop_back();
+            m.insert(m.begin(),garbage_line);
+        }
     }
 }
