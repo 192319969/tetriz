@@ -141,7 +141,7 @@ namespace gm
     void help2();
 
     //add trash line
-    void add_trash(Matrix& m,int n);
+    void add_garbage(Matrix& m,int n);
 
 }
 /**
