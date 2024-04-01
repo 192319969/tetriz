@@ -1,7 +1,5 @@
 #include "piece.h"
 
-#include "piece.h"
-
 namespace gm
 {
     Piece::Piece(Tetromino t, int x0, int y0, int i)
